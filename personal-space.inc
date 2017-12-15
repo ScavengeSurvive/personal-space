@@ -26,7 +26,7 @@ forward IsPlayerNextToPlayer(playerid, targetid);
 Checks if a player is standing next to another player.
 */
 
-forward GetPlayerNextToPlayers(playerid, players[]);
+forward GetPlayersNextToPlayer(playerid, players[], len = sizeof players);
 /*
 # Description
 Returns a list of players stood next to the player.
@@ -197,6 +197,19 @@ stock IsPlayerNextToPlayer(playerid, targetid) {
 	}
 
 	return IsPlayerInDynamicArea(playerid, Area[targetid]);
+}
+
+stock GetPlayersNextToPlayer(playerid, players[], len = sizeof players) {
+	new idx;
+
+	foreach(new i : NearbyPlayers[playerid]) {
+		if(idx == len - 1) {
+			break;
+		}
+		players[idx++] = i;
+	}
+
+	return 0;
 }
 
 stock E_APPROACH_DIRECTION:GetApproachDirection(Float:angle) {
