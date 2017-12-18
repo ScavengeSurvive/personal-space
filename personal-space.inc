@@ -209,7 +209,7 @@ stock GetPlayersNextToPlayer(playerid, players[], len = sizeof players) {
 		players[idx++] = i;
 	}
 
-	return 0;
+	return idx;
 }
 
 stock E_APPROACH_DIRECTION:GetApproachDirection(Float:angle) {
