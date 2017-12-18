@@ -8,6 +8,6 @@ ensurebuild:
 build:
 	sampctl package build
 
-version:
+release:
 	git tag $(VERSION)
 	git push --tags
