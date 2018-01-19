@@ -4,18 +4,10 @@ A simple library providing an API for player-to-player interactions such as chec
 
 ## Installation
 
-Simply add to your `pawn.json`/`pawn.yaml`:
-
-```json
-{
-    "dependencies": ["ScavengeSurvive/personal-space"]
-}
-```
-
-Update your `dependencies` directory:
+Simply install to your project:
 
 ```bash
-sampctl package ensure
+sampctl package install ScavengeSurvive/personal-space
 ```
 
 Include in your code and begin using the library:

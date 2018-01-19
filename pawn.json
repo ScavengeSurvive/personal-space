@@ -4,10 +4,9 @@
     "dependencies": [
         "Southclaws/samp-stdlib",
         "Southclaws/samp-logger",
-        "Zeex/amx_assembly",
-        "Misiur/YSI-Includes",
+        "pawn-lang/YSI-Includes",
         "samp-incognito/samp-streamer-plugin",
-        "ScavengeSurvive/mathutil",
-        "ScavengeSurvive/test-boilerplate"
-    ]
+        "ScavengeSurvive/mathutil"
+    ],
+    "dev_dependencies": ["ScavengeSurvive/test-boilerplate"]
 }
