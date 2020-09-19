@@ -11,11 +11,12 @@
 
 #include <a_samp>
 #include <logger>
-#include <YSI\y_iterate>
-#include <YSI\y_timers>
-#include <YSI\y_hooks>
+#include <YSI_Data\y_iterate>
+#include <YSI_Coding\y_timers>
 #include <streamer>
 #include <mathutil>
+
+#include <YSI_Coding\y_hooks>
 
 
 enum E_APPROACH_DIRECTION {
