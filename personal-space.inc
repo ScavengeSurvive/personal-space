@@ -11,8 +11,7 @@
 
 #include <a_samp>
 #include <logger>
-#include <YSI_Coding\y_iterate>
-#include <YSI_Coding\y_hooks>
+#include <YSI_Data\y_iterate>
 #include <streamer>
 #include <mathutil>
 
@@ -47,7 +46,7 @@ Returns a direction from the given angle.
 */
 
 
-forward OnPlayerApproachPlayer(playerid, targetid, E_APPROACH_DIRECTION:fromDirection);
+forward OnPlayerApproachPlayer(playerid, targetid, E_APPROACH_DIRECTION:fromDirection, Float:angle);
 /*
 # Called
 When a player walks within 2m of another player.
@@ -130,7 +129,7 @@ hook OnPlayerEnterDynArea(playerid, areaid) {
 			}
 
 			if(areaid != Area[data[1]]) {
-				err("player area id mismatch");
+				Logger_Err("player area id mismatch");
 				return Y_HOOKS_CONTINUE_RETURN_0;
 			}
 
@@ -148,12 +147,12 @@ hook OnPlayerEnterDynArea(playerid, areaid) {
 				E_APPROACH_DIRECTION:direction;
 			
 			GetPlayerPos(playerid, px, py, pz);
-			GetPlayerPos(playerid, tx, ty, tz);
+			GetPlayerPos(data[1], tx, ty, tz);
 
 			angle = GetAbsoluteAngle(GetAngleToPoint(tx, ty, px, py));
 			direction = GetApproachDirection(angle);
 
-			CallLocalFunction("OnPlayerApproachPlayer", "ddd", playerid, data[1], _:direction);
+			CallLocalFunction("OnPlayerApproachPlayer", "dddf", playerid, data[1], _:direction, angle);
 		}
 	}
 
@@ -176,7 +175,7 @@ hook OnPlayerLeaveDynArea(playerid, areaid) {
 			}
 
 			if(areaid != Area[data[1]]) {
-				err("player area id mismatch");
+				Logger_Err("player area id mismatch");
 			} else {
 				CallLocalFunction("OnPlayerLeavePlayer", "dd", playerid, data[1]);
 			}

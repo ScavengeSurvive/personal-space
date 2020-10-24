@@ -6,13 +6,13 @@ main() {
 	//
 }
 
-public OnPlayerApproachPlayer(playerid, targetid, E_APPROACH_DIRECTION:fromDirection) {
+public OnPlayerApproachPlayer(playerid, targetid, E_APPROACH_DIRECTION:fromDirection, Float:angle) {
 	new str[128];
 
-	format(str, 128, "You approached player %d from direction %d", targetid, _:fromDirection);
+	format(str, 128, "You approached player %d from direction %d %f", targetid, _:fromDirection, angle);
 	SendClientMessage(playerid, -1, str);
 
-	format(str, 128, "You were approached by player %d from direction %d", playerid, _:fromDirection);
+	format(str, 128, "You were approached by player %d from direction %d %f", playerid, _:fromDirection, angle);
 	SendClientMessage(targetid, -1, str);
 
 	return 0;
