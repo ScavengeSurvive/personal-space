@@ -121,16 +121,16 @@ hook OnPlayerEnterDynArea(playerid, areaid) {
 
 		if(data[0] == PSPACE_STREAMER_AREA_IDENTIFIER) {
 			if(data[1] == playerid) {
-				return Y_HOOKS_CONTINUE_RETURN_0;
+				return 0;
 			}
 
 			if(GetPlayerState(data[1]) == PLAYER_STATE_SPECTATING) {
-				return Y_HOOKS_CONTINUE_RETURN_0;
+				return 0;
 			}
 
 			if(areaid != Area[data[1]]) {
 				Logger_Err("player area id mismatch");
-				return Y_HOOKS_CONTINUE_RETURN_0;
+				return 0;
 			}
 
 			Iter_Add(NearbyPlayers[playerid], data[1]);
@@ -156,7 +156,7 @@ hook OnPlayerEnterDynArea(playerid, areaid) {
 		}
 	}
 
-	return Y_HOOKS_CONTINUE_RETURN_0;
+	return 0;
 }
 
 hook OnPlayerLeaveDynArea(playerid, areaid) {
@@ -167,11 +167,11 @@ hook OnPlayerLeaveDynArea(playerid, areaid) {
 
 		if(data[0] == PSPACE_STREAMER_AREA_IDENTIFIER) {
 			if(data[1] == playerid) {
-				return Y_HOOKS_CONTINUE_RETURN_0;
+				return 0;
 			}
 
 			if(GetPlayerState(data[1]) == PLAYER_STATE_SPECTATING) {
-				return Y_HOOKS_CONTINUE_RETURN_0;
+				return 0;
 			}
 
 			if(areaid != Area[data[1]]) {
@@ -185,7 +185,7 @@ hook OnPlayerLeaveDynArea(playerid, areaid) {
 		}
 	}
 
-	return Y_HOOKS_CONTINUE_RETURN_0;
+	return 0;
 }
 
 stock IsPlayerNextToPlayer(playerid, targetid) {
