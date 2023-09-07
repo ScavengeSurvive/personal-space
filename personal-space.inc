@@ -17,10 +17,6 @@
 
 #include <YSI_Coding\y_hooks>
 
-#if !defined STREAMER_TAG_AREA
-	#define STREAMER_TAG_AREA _
-#endif
-
 enum E_APPROACH_DIRECTION {
 	APPROACH_FROM_FRONT,
 	APPROACH_FROM_LEFT,
@@ -63,7 +59,7 @@ When a player leaves the 2m boundary of another player.
 
 
 static
-	STREAMER_TAG_AREA:Area[MAX_PLAYERS],
+	STREAMER_TAG_AREA Area[MAX_PLAYERS],
 	Iterator:NearbyPlayers[MAX_PLAYERS]<MAX_PLAYERS>;
 
 
@@ -105,14 +101,14 @@ static _pspace_connect(playerid) {
 
 static _pspace_disconnect(playerid) {
 	DestroyDynamicArea(Area[playerid]);
-	Area[playerid] = STREAMER_TAG_AREA:INVALID_STREAMER_ID;
+	Area[playerid] = STREAMER_TAG_AREA INVALID_STREAMER_ID;
 }
 
 hook OnPlayerSpawn(playerid) {
 	AttachDynamicAreaToPlayer(Area[playerid], playerid);
 }
 
-hook OnPlayerEnterDynArea(playerid, STREAMER_TAG_AREA:areaid) {
+hook OnPlayerEnterDynArea(playerid, STREAMER_TAG_AREA areaid) {
 	if(GetPlayerState(playerid) != PLAYER_STATE_SPECTATING) {
 		new data[2];
 
@@ -158,7 +154,7 @@ hook OnPlayerEnterDynArea(playerid, STREAMER_TAG_AREA:areaid) {
 	return 0;
 }
 
-hook OnPlayerLeaveDynArea(playerid, STREAMER_TAG_AREA:areaid) {
+hook OnPlayerLeaveDynArea(playerid, STREAMER_TAG_AREA areaid) {
 	if(GetPlayerState(playerid) != PLAYER_STATE_SPECTATING) {
 		new data[2];
 
