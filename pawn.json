@@ -7,7 +7,7 @@
         "sampctl/samp-stdlib",
         "Southclaws/samp-logger",
         "pawn-lang/YSI-Includes@5.x",
-        "samp-incognito/samp-streamer-plugin:v2.9.3",
+        "samp-incognito/samp-streamer-plugin:v2.9.6",
         "ScavengeSurvive/mathutil"
     ],
     "dev_dependencies": [
